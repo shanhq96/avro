@@ -23,7 +23,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.IdentityHashMap;
 import java.util.Map;
 
 import org.apache.avro.AvroRuntimeException;
@@ -497,7 +496,7 @@ public class GenericDatumReader<D> implements DatumReader<D> {
     }
   }
 
-  private Map<Schema, Class> stringClassCache = new IdentityHashMap<>();
+  private Map<Schema, Class> stringClassCache = new HashMap<>();
 
   private Class getStringClass(Schema s) {
     Class c = stringClassCache.get(s);
